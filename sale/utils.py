@@ -1,4 +1,7 @@
+from turtle import color
 import uuid
+import seaborn as sns
+from matplotlib.lines import lineStyles
 from profiles.models import *
 from shop.models import *
 import matplotlib.pyplot as plt
@@ -31,14 +34,18 @@ def get_chart(chart_type, data, **kwargs):
     fig = plt.figure(figsize=(10,4))
     if chart_type == '#1':
         print("Bar Chart")
-        plt.bar(data['transaction_id'], data['price'])
+        plt.bar(data['transaction_id'], data['price'], color='orange')
     elif chart_type == '#2':
         print("Pie Chart")
         labels = kwargs.get('labels')
         plt.pie(data=data, x='price', labels=labels)
     elif chart_type == '#3':
         print("Line Chart")
-        plt.plot(data['transaction_id'], data['price'])
+        plt.plot(data['transaction_id'], data['price'], color="green", marker='o', linestyle='dashed')
+    elif chart_type == '#4':
+        print("Seaborn Chart")
+        sns.barplot(x='transaction_id', y='price', data=data)
+        
     else:
         print("No Chart Type")
     plt.tight_layout
