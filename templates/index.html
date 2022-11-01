@@ -11,23 +11,28 @@
 <button onclick="window.location.href='{{x.file_name.url}}'" target='__blank'>DOWNLOAD</button></br>
 {% endfor %}
 
-<p>This is index</p>
+{% comment %}  {% endcomment %}
 
+<p>This is index</p>
 {% load crispy_forms_tags %}
 <form action="" method="POST" class="mx-2">
     {% csrf_token %}
     {{form|crispy}}
     <button type="submit" class="btn btn-primary my-4">Search</button>
-    <h3>This is Sale</h3>
-{% if sales_df%}
-    {{sales_df| safe}}
-{% else%}
-<h3>No data found for Sales "{{request.user}}"</h3>
-{% endif %}
-<h3>This is Positions<h3>
-{% if positions_df%}
-    {{positions_df| safe}}
-{% else%}
-<h3>No data found for Positions "{{request.user}}"</h3>
-{% endif %}
 </form>
+
+
+{% if sales_df%}
+    <h3>This is Sale Data</h3>
+    {{sales_df| safe}}
+    <h3>This is Positions Data</h3>
+    {{positions_df| safe}}
+    <h3>This is Merged Data</h3>
+    {{merged_df| safe}}
+    <h3>This is Grouped Data</h3>
+    {{df|safe}}
+    <h3>This is Graph</h3>
+    <img src="data:image/pmg;base64, {{chart|safe}}">
+{% else%}
+    <h3>No data found "{{request.user}}"</h3>
+{% endif %}
