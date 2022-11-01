@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+{% for x in object_list%}
+
+<div>Sale id: {{x.id}}</div>
+{{x.positions}}
+</br>
+<div class="card mb-0">
+    <a href="{{x.get_absolute_url}}" target='_blank' class="mb-0">{{x.transaction_id}}</a>
+    {% comment this is also a method %} <a href="{% url 'sale:DetailView' x.pk %} target='_blank' class="card-body">{{x.transaction_id}}</a> {% endcomment %}
+</div>
+</br>
+
+{% endfor %}
