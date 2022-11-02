@@ -1,5 +1,7 @@
+from datetime import datetime
 from turtle import color
 import uuid
+from requests import request
 import seaborn as sns
 from matplotlib.lines import lineStyles
 from profiles.models import *
@@ -7,7 +9,10 @@ from shop.models import *
 import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
+from django.contrib.auth.models import User
+
 def generate_code():
+    # code = str(datetime.now()).replace(' ', '-').upper()[:32]
     code = str(uuid.uuid4()).replace('-', '').upper()[:12]
     return code
 

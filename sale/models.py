@@ -1,14 +1,12 @@
-from email.policy import default
 from uuid import uuid4
-from xmlrpc.client import Boolean
 from django.db import models
-from django.forms import BooleanField
 from pytz import timezone
 from profiles.models import *
 from products.models import *
 from shop.models import *
 from .utils import generate_code
 from django.shortcuts import reverse
+from django.utils import timezone
 
 class Position(models.Model):
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
