@@ -8,11 +8,11 @@
 
 {% for x in CSV%}
 <img src="{{x.file_name.url}}" height=250>
-<button onclick="window.location.href='{{x.file_name.url}}'" target='__blank'>DOWNLOAD Now</button></br>
+<button onclick="window.location.href='{{x.file_name.url}}'" target='__blank'>DOWNLOAD NOW</button></br>
 {% endfor %}
 
 
-<p>This is index</p>
+<h2>This is index</h2>
 {% load crispy_forms_tags %}
 <form action="" method="POST" class="mx-2">
     {% csrf_token %}
