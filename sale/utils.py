@@ -39,7 +39,7 @@ def get_chart(chart_type, data, **kwargs):
     fig = plt.figure(figsize=(10,4))
     if chart_type == '#1':
         print("Bar Chart")
-        plt.bar(data['transaction_id'], data['price'], color='orange')
+        plt.bar(data['transaction_id'], data['price'], color='blue')
     elif chart_type == '#2':
         print("Pie Chart")
         labels = kwargs.get('labels')
